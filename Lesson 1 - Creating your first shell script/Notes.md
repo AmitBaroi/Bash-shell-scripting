@@ -1,4 +1,4 @@
-# Lesson 1: Creating your first shell script
+# Lesson 1: Creating Your First Shell Script
 
 ## 1.1 Why scripting in bash makes sense
 
@@ -27,8 +27,9 @@
 ## 1.3 Core bash script ingredients
 
 - The "shebang": `#!/bin/bash`
-	- # is NOT a comment sign in this case
-
+	
+- # is NOT a comment sign in this case
+	
 - Comment lines explaining what the script wants to accomplish
 
 - White lines and other structural components that make the script readable
