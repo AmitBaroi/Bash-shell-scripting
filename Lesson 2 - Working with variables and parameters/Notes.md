@@ -125,6 +125,8 @@ Special characters in bash:
   - This process is known as *command line parsing*
 - Commands themselves may interpret parts of the command line as well
 - To ensure that a special character is interpreted by the command and not by the shell, use quoting
+- Use: `bash -x script.sh` to run a script while showing what each line is doing
+  - Very helpful for debugging scripts
 
 ### Quoting
 
@@ -159,11 +161,31 @@ Special characters in bash:
 - Shift removes the first argument from the list of arguments, so the second argument is shifted forward and gets stored in `$1`
 - Shift is useful in older shell versions that do not understand `${10}` etc.
 
-
 ## 2.9 Using command substitution
 
+- Command substitution allows using the result of a command in a script
+- Useful to provide ultimate flexibility
+- To allowed syntaxes:
+  - `` `command` `` (deprecated)
+  - `$(command)` (preferred)
+- eg: `ls - $(which passwd)`
 
 ## 2.10 String verification
 
+- When working with arguments and input, it is useful to be able to verify availability and correct use of a string
+- Use `test -z` to check if a string is empty
+  - `test -z $1 && exit 1`
+- Use `[[ ... ]]` to check for specific patterns
+  - `[[ $1=='[a-z]*' ]] || echo $1 does not start with a letter`
+- `&&` - the AND operator
+- `||` - the OR operator
+- `==` - the comparison operator
+  - Just like assignment use `==` without any spaces in between
+- More about this in Lesson 3
+
 
 ## 2.11 Using here documents
+
+- In a here document, I/O redirection is used to feed a command list into an interactive program or command, such as for instance `ftp` or `cat`
+- Use it in scripts to replace `echo` for long texts that need to be displayed
+- Use it if in a script a command is called that opens its own prompt, such as an FTP client interface
