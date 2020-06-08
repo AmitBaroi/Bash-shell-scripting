@@ -1,4 +1,4 @@
-# 2 Working with Variables and Parameters
+# Lesson 2: Working with Variables and Parameters
 
 ## 2.1 About terminology
 
@@ -65,17 +65,99 @@ There are tree ways to define variables:
   - Variables defined here are included in subshells from that point on
   - User specific versions can be used in `~/.bashrc`
 
-
 ## 2.5 Sourcing
 
+- By using sourcing the contents of one script can be included in another script
+- This is a very common method to separate static script code from dynamic content
+  - This dynamic content often consists of variables and functions
+- Use the `source` command or the `.` command to source scripts
+- Do not use `exit` at the end of a script that needs to be sourced
 
 ## 2.6 Quoting
 
+Special characters in bash:
+
+`~` 	Home directory
+
+`` ` 	Command substitution
+
+`#` 	Comment
+
+`$`	 Variable expression
+
+`&`	 Background job
+
+`*` 	String wildcard
+
+`(` 	Start subshell
+
+`)` 	End subshell
+
+`\` 	Quote next character
+
+`'` 	Strong quote
+
+`"` 	Weak quote
+
+`|` 	Pipe (Output of one command will be input for another)
+
+`[`	 Start character set wildcard
+
+`]`	 End character set wildcard
+
+`{` 	Start command block
+
+`}` 	End command block
+
+`;`	 Shell command separator
+
+`<` 	Input redirect
+
+`>` 	Output redirect
+
+`/` 	Pathname directory separator
+
+`?`	 Single character wildcard
+
+### Understanding command line parsing
+
+- When a command is interpreted by the shell, the shell interprets all special characters
+  - This process is known as *command line parsing*
+- Commands themselves may interpret parts of the command line as well
+- To ensure that a special character is interpreted by the command and not by the shell, use quoting
+
+### Quoting
+
+- Quoting is used to treat special characters literally
+- If a string of characters is surrounded with single quotation marks, all characters are stripped of the special meaning they may have
+  - Imagine `echo 2 * 3 > 5`, which would be interpreted
+  - Or imagine `find .-name "*.doc"` which ensures that `find` interprets *.doc and not the shell
+- Double quotes are *weak quotes* and treat only some special characters as special
+  - Ignores pipe characters, aliases, tilde substitution, wildcard expression, and splitting into words using delimiters
+  - Allows parameter substitution, command substitution, and arithmetic expression evaluation
+- Best practice: use single quotes unless you specifically need parameter, command or arithmetic substitution
+- A backslash can be used to escape one character following it
 
 ## 2.7 Handling script arguments
 
+- Any argument that was used when starting a script, can be dealt with from within the script
+- Use `$1`, `$2` and so on to refer to the first, the second etc. argument
+- Use `$0` to refer to the name of the script itself
+- Use `${nn}`or `shift` to refer to arguments beyond 9
+- Arguments that are stored in `$1` etc. are read only and cannot be changed from within the script
+
+### Handling arguments the smart way
+
+- Referring to arguments one by one, works only if the amount of arguments is known beforehand
+- If this is not the case, we can use `for` to loop over all the possible arguments
+- Use `$@` to refer to all arguments provided, where all arguments can be treated one by one (returns an array of the arguments)
+- Use `$#` to count the number of arguments provided
+- Use `$*` if you need a single string that contains all arguments
 
 ## 2.8 Understanding the need to use shift
+
+- Shift removes the first argument from the list of arguments, so the second argument is shifted forward and gets stored in `$1`
+- Shift is useful in older shell versions that do not understand `${10}` etc.
 
 
 ## 2.9 Using command substitution
@@ -85,4 +167,3 @@ There are tree ways to define variables:
 
 
 ## 2.11 Using here documents
-
