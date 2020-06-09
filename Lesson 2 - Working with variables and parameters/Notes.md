@@ -131,14 +131,14 @@ Special characters in bash:
 ### Quoting
 
 - Quoting is used to treat special characters literally
-- If a string of characters is surrounded with single quotation marks, all characters are stripped of the special meaning they may have
+- If a string of characters is surrounded with single quotation marks `'`, all characters are stripped of the special meaning they may have
   - Imagine `echo 2 * 3 > 5`, which would be interpreted
   - Or imagine `find .-name "*.doc"` which ensures that `find` interprets *.doc and not the shell
-- Double quotes are *weak quotes* and treat only some special characters as special
+- Double quotes `"` are *weak quotes* and treat only some special characters as special
   - Ignores pipe characters, aliases, tilde substitution, wildcard expression, and splitting into words using delimiters
   - Allows parameter substitution, command substitution, and arithmetic expression evaluation
-- Best practice: use single quotes unless you specifically need parameter, command or arithmetic substitution
-- A backslash can be used to escape one character following it
+- Best practice: use single quotes `'` unless you specifically need parameter, command or arithmetic substitution
+- A backslash `\` can be used to escape one character following it
 
 ## 2.7 Handling script arguments
 
