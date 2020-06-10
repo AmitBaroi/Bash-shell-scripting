@@ -85,3 +85,24 @@
 
 ## 3..4 Calculating
 
+- Bash offers different ways to calculate in a script
+
+- Internal calculation: `$(( 1 + 1 ))`
+
+- External calculation with `let`:
+
+  - `let x="5 + 3"`
+
+    `echo $x`
+
+- External calculation with `bc`
+  - `bc` is developed as a calculator with its own shell interface
+  - It can deal with more than just integers
+  - Use `bc` in non-interactive mode:
+    - `echo "scale=9; 10/3"|bc`				# scale specifies the number of decimals
+  - Or in a variable:
+    - `VAR=$(echo "scale=9; 10/3"|bc)`
+
+### Math operators
+
+`+` Addition, 	`-` Subtraction, 	`/` Division (integer division)
