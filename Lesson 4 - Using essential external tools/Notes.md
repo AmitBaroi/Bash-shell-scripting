@@ -57,10 +57,29 @@
 
 ## 4.5 Using `sed`
 
-
+- `sed` is more than just a text processing utility, its a programming language with many features
+- A limited set of these are useful in scripts
+- eg:
+  - `sed -n 5p /etc/passwd`
+  - `sed -i s/old-text/new-text/g~/myfile`
+  - `sed -i -e '2d' ~/myfile`
+  - `sed -i -e '2d:20,25d' ~/myfile`
 
 ## 4.6 Using `awk`
 
-
+- Like `sed`, `awk` is a very rich language
+- In scripts we will appreciate it as an alternative to `cut` to filter information from text files on regular expression-based patterns
+- The basic usage is `awk '/search pattern/ {Actions}' file`
+- eg: (here the `,` or `:` are delimiters)
+  - `awk -F , '{ print $2 }' some.csv`    # prints 2nd col of file (where comma is delimiter)
+  - `awk -F , '/amit/ {print $3}' some.csv`    # prints 3rd col of the row having 'amit' (any col)
+  - `awk -F : '{ print $1,$NF }' /etc/passwd`    # prints 1st and last field ($NF is the last field)
+  - `awk -F : '$3 > 500' /etc/passwd`    # Filters out the rows with 3rd col value > 500
+  - `awk -F , ' $3 < 30 ' some.csv`    # Filters out the rows with 3rd col value < 30
+  - `awk -F , ' $4 ~/captain/ ' some.csv`    # Filters out the rows having captain in 4th col value
 
 ## 4.7 Using `tr`
+
+- `tr` helps in transforming strings
+- `echo hello | tr [a-z][A-Z]`                    # Specific to English and similar languages
+- `echo hello | tr [:lower:][:upper:]`   # Much much more flexible (preferred)
