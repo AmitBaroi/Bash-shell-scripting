@@ -28,7 +28,7 @@
 
 - The "shebang": `#!/bin/bash`
 	
-- # is NOT a comment sign in this case
+- ''#'' is NOT a comment sign in this case
 	
 - Comment lines explaining what the script wants to accomplish
 
@@ -37,7 +37,7 @@
 - An exit statement if you don't want to use the exit status of the last command in the script
 
 
-## 1.4 Storing and runnig the script
+## 1.4 Storing and running the script
 
 - On Linux the current directory is not in the `$PATH` variable
 
@@ -56,7 +56,7 @@
 	- `bash myscript.sh`
 
 
-## 1.5 Using bash internal commandas vs external commands
+## 1.5 Using bash internal commands vs external commands
 
 - An *internal command* is a part of the Bash shell
 	- It does not have to be loaded from disk and therefore is faster

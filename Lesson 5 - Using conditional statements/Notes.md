@@ -40,22 +40,24 @@
 
   `elif condition 2`
 
+  `then`
+
   ​		`command 2`
 
   `else`
 
   ​		`command 3`
-
+  
   `fi`
 
 ## 5.2 Using && and ||
 
-- `&&` and `||` and the logical AND and OR operators in bash
+- `&&` and `||` are the logical AND and OR operators in bash
 - They can be used as a short notation for if ... then ... fi constructions
 - When using `&&` the second command is executed only if the first returns an exit code zero
-  - `[ -z $1 ] && echo 1$ is not defined`
+  - `[ -z $1 ] && echo $1 is not defined`
 - When using `||` the second command is executed only if the first command does not return an exit code of zero
-  - `[ -f $1 ] || echo 1$ is not a file`
+  - `[ -f $1 ] || echo $1 is not a file`
 
 ## 5.3 Using for
 

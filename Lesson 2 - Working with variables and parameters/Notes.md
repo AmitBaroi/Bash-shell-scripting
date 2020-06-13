@@ -25,7 +25,7 @@ There are tree ways to define variables:
 	- First write the name of the variable `VAR_NAME`
 	- After the variable name write the equal sign `=` followed by the value we want to assign
 	- eg: `DIRECTORY='/var/log/messages'`
-	- By convention, variables in bash are written in uppercase, but that isn't manditory.
+	- By convention, variables in bash are written in uppercase, but that isn't mandatory.
 
 2. As an argument to a script, handled using $1, $2 etc. within the script
 
@@ -95,11 +95,11 @@ Special characters in bash:
 
 `\` 	Quote next character
 
+`|` 	Pipe (Output of one command will be input for another)
+
 `'` 	Strong quote
 
 `"` 	Weak quote
-
-`|` 	Pipe (Output of one command will be input for another)
 
 `[`	 Start character set wildcard
 
@@ -165,7 +165,7 @@ Special characters in bash:
 
 - Command substitution allows using the result of a command in a script
 - Useful to provide ultimate flexibility
-- To allowed syntaxes:
+- Two allowed syntaxes:
   - `` `command` `` (deprecated)
   - `$(command)` (preferred)
 - eg: `ls - $(which passwd)`

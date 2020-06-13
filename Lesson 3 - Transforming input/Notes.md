@@ -17,7 +17,7 @@
 
 ## 3.2 Using pattern matching operators
 
-- Patter matching is used to *remove* patterns from a variable
+- Pattern matching is used to *remove* patterns from a variable
 
 - Its an excellent way to clean up variables that have too much information
 
@@ -105,4 +105,4 @@
 
 ### Math operators
 
-`+` Addition, 	`-` Subtraction, 	`/` Division (integer division)
+`+` Addition, 	`-` Subtraction, 	`/` Division (integer division), `*` Multiplication, `%` Modulus, `**` Exponent
